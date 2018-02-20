@@ -8,14 +8,20 @@ var vue= new Vue({
     created: function(){
       $.getJSON('static/process.json',function(json){
         this.stakeholder = json.process.stakeholder;
-        console.log(this.stakeholder);
+        //console.log(this.stakeholder);
       });
     },
   });
 
   var telvue= new Vue({
-    el: "#telinput",
+    el: "#allinput",
     data: {
-     number:""
+     number:"",
+     stakeholder: []
+    },
+    created: function(){
+      $.getJSON('static/process.json',function(json){
+        telvue.$data.stakeholder = json.process.stakeholder;
+      });
     },
   });

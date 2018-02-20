@@ -47,6 +47,22 @@ var vue = new Vue({
       a.dataset.downloadurl = ['text/json', a.download, a.href].join(':');
       e.initEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
       a.dispatchEvent(e);
+  },
+  onFileChange(e) {
+    var files = e.target.files || e.dataTransfer.files;
+    if (!files.length)
+      return;
+    this.createImage(files[0]);
+  },
+  createImage(file) {
+    var image = new Image();
+    var reader = new FileReader();
+    var vm = this;
+
+    reader.onload = (e) => {
+      vm.stakeholder[vm.index].id = e.target.result;
+    };
+    reader.readAsDataURL(file);
   }
   }
 });

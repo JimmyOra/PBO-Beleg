@@ -1,19 +1,6 @@
-var vue= new Vue({
-    el: "#platinput",
-    data: {
-      plattform: "",
-      url: "https://www.facebook.com/",
-      stakeholder: []
-    },
-    created: function(){
-      $.getJSON('static/process.json',function(json){
-        this.stakeholder = json.process.stakeholder;
-        //console.log(this.stakeholder);
-      });
-    },
-  });
 
-  var telvue= new Vue({
+
+  var vue= new Vue({
     el: "#allinput",
     data: {
      number:"",
@@ -21,7 +8,28 @@ var vue= new Vue({
     },
     created: function(){
       $.getJSON('static/process.json',function(json){
-        telvue.$data.stakeholder = json.process.stakeholder;
+        vue.$data.stakeholder = json.process.stakeholder;
       });
     },
+    filters: {
+      firstname: function(value){
+        if(!value) return '';
+        value=value.toString();
+        var pos = value.lastIndexOf(" ");
+        if(pos===-1)
+          return value;
+        return value.slice(0,pos);
+        
+  
+    },
+    lastname: function(value){
+      if(!value) return '';
+      value=value.toString();
+      var pos = value.lastIndexOf(" ");
+      if(pos===-1)
+        return "";
+      return value.slice(pos);
+
+  }
+  }
   });

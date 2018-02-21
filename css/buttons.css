@@ -1,0 +1,24 @@
+.btn-remove {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+    margin: 0 auto; float: none;
+    margin-top: 5px;
+    color: white !important;
+}
+
+.btn-add {
+    width: 70px;
+    height: 70px;
+    padding: 13px 24px 10px 23px;
+    border-radius: 35px;
+    font-size: 30px;
+    line-height: 1.4;
+    margin: 0 auto; float: none;
+    margin-top: 5px;
+    color: rgb(228, 210, 210) !important; 
+}

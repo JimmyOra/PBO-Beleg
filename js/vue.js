@@ -63,6 +63,31 @@ var vue = new Vue({
       };
       reader.readAsDataURL(file);
     },
+    remove: function (index) {
+      if (this.stakeholder.length == 1)
+        this.empty(this.stakeholder[0]);
+
+      else
+        this.stakeholder.splice(index, 1);
+    },
+    empty: function(sh){
+
+      sh.id=""
+     
+      sh.name= "unknown",
+      sh.type= "group closed",
+      sh.contact.contactPerson="TODO";
+      sh.contact.postAddress="TODO";
+      sh.contact.email="TODO";
+      sh.contact.name="TODO";
+      sh.contact.phone="TODO";
+      sh.contact.telefax="TODO";
+    },
+    add: function(){
+      var n = Object.assign({}, this.stakeholder[0]);
+      this.empty(n);
+      this.stakeholder.push(n);
+    }
   },
   computed: {
     eval: function () {
@@ -106,9 +131,9 @@ var vue = new Vue({
       re = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/;
       if (!re.test(contact.website)) {
         if (contact.website != "" && contact.website != "TODO") {
-        answer.right = false;
-        answer.message = "ungültige Website";
-        return answer;
+          answer.right = false;
+          answer.message = "ungültige Website";
+          return answer;
         }
       }
       return answer;

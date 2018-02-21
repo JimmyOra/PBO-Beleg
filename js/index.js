@@ -11,7 +11,7 @@ function animateButton(el, scale, duration, elasticity) {
 }
 
 function enterButton(el) {
-  animateButton(el, 1.2, 800, 400)
+  animateButton(el, 1.1, 800, 400)
 };
 
 function leaveButton(el) {

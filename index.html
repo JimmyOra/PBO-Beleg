@@ -68,12 +68,13 @@
               <span v-for="(sh, index) in stakeholder">
 
                 <div class="card" style="width: 14rem; margin: 5px;">
-                  <img class="card-img-top" :src="stakeholder[index].id" alt="bildchen">
+                  <img class="card-img-top" :src="stakeholder[index].id" alt="bildchen" height="300">
                   <div class="card-block" style="padding: 5px">
                     <h3 class="card-title">{{stakeholder[index].contact.contactPerson}}</h3>
                     <a class="nav-link js-scroll-trigger btn btn-primary" href="#about" v-on:click="setid(index)">visit</a>
                   </div>
                 </div>
+                <div class="resume-item d-flex flex-column flex-md-row mb-4"></div>
               </span>
             </div>
           </div>

@@ -87,6 +87,15 @@ var vue = new Vue({
       var n = Object.assign({}, this.stakeholder[0]);
       this.empty(n);
       this.stakeholder.push(n);
+    },
+    animateButton: function(event, scale, duration, elasticity) {
+      anime.remove(event.currentTarget);
+      anime({
+        targets: event.currentTarget,
+        scale: scale,
+        duration: duration,
+        elasticity: elasticity
+      });
     }
   },
   computed: {

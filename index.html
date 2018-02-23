@@ -93,6 +93,7 @@
 
 
       <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
+        <div class="row">
         <div class="my-auto">
           <h1 class="mb-0">{{stakeholder[index].contact.contactPerson|firstname}}
             <span class="text-primary">{{stakeholder[index].contact.contactPerson|lastname}}</span>
@@ -137,6 +138,8 @@
             </li>
           </ul>
         </div>
+              <img class=" img-fluid rounded float-right" :src="stakeholder[index].id" alt="Profilbild">
+    </div>
       </section>
 
       <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="experience">

@@ -1,19 +1,10 @@
-(function($) {
-  "use strict"; // Start of use strict
-
-  // Smooth scrolling using jQuery easing
-  $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
-    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-      if (target.length) {
-        $('html, body').animate({
-          scrollTop: (target.offset().top)
-        }, 1000, "easeInOutExpo");
-        return false;
-      }
-    }
-  });
+$(document).on('click', 'a[href^="#"]', function () {
+  var href = $(this).attr('href');
+  $('html, body').animate({
+    scrollTop:$(href).offset().top
+  },'slow');
+  e.preventDefault();
+});
 
   // Closes responsive menu when a scroll trigger link is clicked
   $('.js-scroll-trigger').click(function() {
@@ -24,5 +15,3 @@
   $('body').scrollspy({
     target: '#sideNav'
   });
-
-})(jQuery); // End of use strict

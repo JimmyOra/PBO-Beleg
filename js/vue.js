@@ -8,9 +8,7 @@ var vue = new Vue({
     index: 0,
   },
   created: function () {
-    $.getJSON('static/process2.json', function (json) {
-      vue.$data.stakeholder = json;
-    });
+    this.loadJSON();
   },
   filters: {
     firstname: function (value) {
@@ -34,6 +32,20 @@ var vue = new Vue({
     }
   },
   methods: {
+    loadJSON: function() {
+      var xobj = new XMLHttpRequest();
+      xobj.overrideMimeType("application/json");
+      xobj.onreadystatechange = function () {
+          if (xobj.readyState == 4 && xobj.status == "200") {
+              // .open will NOT return a value but simply returns
+              //undefined in async mode so use a callback
+              var jsondata = JSON.parse(xobj.responseText);
+              vue.$data.stakeholder= jsondata;   //store the part we need in our data object
+          }
+      }
+      xobj.open('GET', 'static/process2.json', true);
+      xobj.send(null);
+  },
     setid: function (index) {
       this.index = index;
     },
